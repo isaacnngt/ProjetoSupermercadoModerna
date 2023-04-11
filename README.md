@@ -21,4 +21,4 @@ Projeto de CRUD com utilizacao do Maven e "padrão MVC" com banco de dados postg
 
 Bons estudos...
 
-PS.: O código é bem basico e fica a seu critério melhor o mesmo e deixar mais robustos. Bons estudos (Novamente rsrs)
+PS.: O código é bem basico e fica a seu critério melhorar o mesmo e deixar mais robustos. Bons estudos (Novamente rsrs)
