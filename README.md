@@ -5,7 +5,7 @@ Projeto de CRUD com utilizacao do Maven e "padrão MVC" com banco de dados postg
 --| Banco de Dados
 -----------------------------------
 - O projeto consta com o arquivo de estrutura do banco de dados a ser executado/rodado no banco postgres pelo PGAdmin, Dbeaver ou qq outra IDE de sua escolha
-- Dados padrões de conexão é porta:5432 usuario e senha com o nome de: postgres
+- Dados padrões de conexão e sua configuração são: porta:5432 usuario:postgres e senha: 123
 
 -----------
 --| Java
