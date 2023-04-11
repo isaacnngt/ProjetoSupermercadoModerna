@@ -1,5 +1,4 @@
 CREATE TABLE SECAO_tb (
-
 ID_SECAO SERIAL PRIMary key,
 NOME VARCHAR (80) not null
 );
