@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 import mermoderna.controller.Auxiliar;
 import mermoderna.controller.ProdutoController;
+import mermoderna.controller.SecaoController;
 import mermoderna.view.MenuPrincipal;
 
 public class ProdutoDao {
@@ -284,7 +285,33 @@ public class ProdutoDao {
 	public static void InserirProduto() throws Throwable {
 
 		Scanner scn = new Scanner(System.in);
+		
+		//-------------------- INICIO --------------------------------------------------
+		//- Verifica se existe uma secao cadastrada
+		//- So eh possivel cadastrar um produto se antes tiver uma secao cadastrada
+		//------------------------------------------------------------------------------
+		
+		// Comando SQL a ser executado
+		String consulta = "SELECT * FROM secao_tb order by 1 asc";
 
+		// abre a conexao com o banco
+		Connection conexao = FarmConexaoDao.getConnection();
+
+		// Preparacao de uma declaracao como nao eh passado parametros eh utilizado o
+		// Statement
+		Statement statement = conexao.createStatement();
+
+		// Obtem o resultado oriundo da consulta SQL
+		ResultSet resultado = statement.executeQuery(consulta);
+
+		if (!resultado.next()) {
+		    System.out.println("Nao existe nenhuma secao cadastrada.");
+		    System.out.println("Antes de cadastrar um produto, primero se deve cadastrar uma secao.");
+		    Auxiliar.voltaMenu();
+		}
+		//-------------------- FIM --------------------------------------------------
+		
+		
 		System.out.println("******** CADASTRO DE PRODUTO *********)");
 		// Jeito certo (INICIO) - Desse jeito que foi criado ele bloquear� tentativa
 		// de comandos SQL
@@ -298,10 +325,7 @@ public class ProdutoDao {
 		Double valor = scn.nextDouble();
 		scn.nextLine();
 
-		// chamada da conexao
-		Connection conexao = FarmConexaoDao.getConnection();
-
-		// Comando Sql de inser��o
+		// Comando Sql de insercao
 		String sql = "Insert Into produto_tb (nome, id_secao, valor) Values (?,?,?)";
 		// String sql = "Insert Into pessoas (nome, codigo) Values (?,?)";
 
